@@ -1,0 +1,43 @@
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder.appName("practice").getOrCreate()
+
+customers_data = [
+    (1, "Varma", "Mumbai", 26), 
+    (2, "Vihar", "Delhi", 31),
+    (3, "Nikki", "Pune", 27),
+    (4, "Ganesh", "Kolkata", 36),
+    (5, "Hari", "Ahmedabad", 23)
+]
+
+orders_data = [
+    (201, 1, 2700, "2026-02-10"),
+    (202, 2, 1900, "2026-02-12"),
+    (203, 1, 3500, "2026-02-15"),
+    (204, 3, 1600, "2026-02-18"),
+    (205, 5, 3000, "2026-02-20")
+]
+
+customers = spark.createDataFrame(customers_data, ["customer_id", "customer_name", "city", "age"])
+orders = spark.createDataFrame(orders_data, ["order_id", "customer_id", "amount", "order_date"])
+
+-- 1
+orders.groupBy("customer_id").sum("amount").show()
+
+-- 2
+orders.groupBy("customer_id").sum("amount").orderBy("sum(amount)", ascending=False).show(3)
+
+-- 3
+customers.join(orders, "customer_id", "left_anti").show()
+
+-- 4
+customers.join(orders, "customer_id").groupBy("city").sum("amount").show()
+
+-- 5
+orders.groupBy("customer_id").avg("amount").show()
+
+-- 6
+orders.groupBy("customer_id").count().filter("count > 1").show()
+
+-- 7
+orders.groupBy("customer_id").sum("amount").orderBy("sum(amount)", ascending=False).show()
