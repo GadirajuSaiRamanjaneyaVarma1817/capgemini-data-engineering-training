@@ -1,1 +1,47 @@
+Full Table:
++-----------+-------------+---------+---+
+|customer_id|customer_name|     city|age|
++-----------+-------------+---------+---+
+|          1|        Varma|  Chennai| 30|
+|          2|         Hari|Bengaluru| 24|
+|          3|       Ganesh|Hyderabad| 35|
+|          4|        Nikki|  Chennai| 27|
+|          5|        Vihar|Hyderabad| 22|
++-----------+-------------+---------+---+
 
+Customers from Chennai:
++-----------+-------------+-------+---+
+|customer_id|customer_name|   city|age|
++-----------+-------------+-------+---+
+|          1|        Varma|Chennai| 30|
+|          4|        Nikki|Chennai| 27|
++-----------+-------------+-------+---+
+
+Customers with age > 25:
++-----------+-------------+---------+---+
+|customer_id|customer_name|     city|age|
++-----------+-------------+---------+---+
+|          1|        Varma|  Chennai| 30|
+|          3|       Ganesh|Hyderabad| 35|
+|          4|        Nikki|  Chennai| 27|
++-----------+-------------+---------+---+
+
+Customer Name and City:
++-------------+---------+
+|customer_name|     city|
++-------------+---------+
+|        Varma|  Chennai|
+|         Hari|Bengaluru|
+|       Ganesh|Hyderabad|
+|        Nikki|  Chennai|
+|        Vihar|Hyderabad|
++-------------+---------+
+
+Count by City:
++---------+-----+
+|     city|count|
++---------+-----+
+|  Chennai|    2|
+|Bengaluru|    1|
+|Hyderabad|    2|
++---------+-----+
