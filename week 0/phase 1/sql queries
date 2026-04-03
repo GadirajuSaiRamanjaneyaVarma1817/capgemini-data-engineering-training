@@ -1,0 +1,23 @@
+CREATE TABLE customers (
+    customer_id INT,
+    customer_name VARCHAR(50),
+    city VARCHAR(50),
+    age INT
+);
+
+INSERT INTO customers VALUES
+(1, 'Varma', 'Chennai', 30),
+(2, 'Hari', 'Bengaluru', 24),
+(3, 'Ganesh', 'Hyderabad', 35),
+(4, 'Nikki', 'Chennai', 27),
+(5, 'Vihar', 'Hyderabad', 22);
+
+SELECT * FROM customers;
+
+SELECT * FROM customers WHERE city = 'Chennai';
+
+SELECT * FROM customers WHERE age > 25;
+
+SELECT customer_name, city FROM customers;
+
+SELECT city, COUNT(*) FROM customers GROUP BY city;
